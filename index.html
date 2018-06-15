@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>*{margin: 0; padding:0;}</style>
+</head>
+<body>
+    <script>
+        let canvas = document.createElement('canvas');
+        let ctx  = canvas.getContext('2d');
+        // let context  = canvas.getContext('2d');
+        document.body.appendChild(canvas);
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+
+        canvas.height = 2*h;
+        canvas.width = 2*w;
+
+
+        canvas.style.width = w + 'px';
+        canvas.style.height  = h + 'px';
+
+        let time = 0;
+
+        function raf() {
+    time = time + 0.01;
+            console.log(time);
+            ctx.clearRect(0,0,2*w,2*h);
+            ctx.fillRect(0,time*100,100,100);
+            window.requestAnimationFrame(raf)
+        }
+
+        raf();
+    //    https://youtu.be/XWjdaCsj48M?t=14m55s
+    </script>
+
+</body>
+</html>
